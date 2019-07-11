@@ -72,11 +72,12 @@ class ArticleListVC: UIViewController {
         }
     }
     
-    private func reloadCollection() {
-        DispatchQueue.main.asyncAfter(deadline: .now()+0.7) {
-            self.collectionView.reloadData()
-        }
+    private func resetPagination() {
+        currentPage = 0
+        articleVM.dataModel.removeAll()
+        collectionView.reloadData()
     }
+  
 }
 
 
@@ -106,9 +107,8 @@ extension ArticleListVC: UICollectionViewDelegate, UICollectionViewDataSource {
 extension ArticleListVC: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        resetPagination()
         getArticles(searchBar.text ?? "")
-        articleVM.dataModel.removeAll()
-        collectionView.reloadData()
         searchBar.resignFirstResponder()
     }
 }
