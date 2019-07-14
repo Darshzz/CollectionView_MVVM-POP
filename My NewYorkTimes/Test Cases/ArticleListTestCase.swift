@@ -15,6 +15,7 @@ class ArticleListTestCase: XCTestCase {
     
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        articleVM = ArticleViewModel()
         
         articleVM.dataModel = [DummyArticles(snippet: "California has become the first state to offer taxpayer-funded health benefits to young adults living in the country illegally.", headline: "California OKs Benefits to Immigrants in Country Illegally", imgUrl: nil),
         DummyArticles(snippet: "In a women singles tournament full of surprises, Strycova semifinal run may be the most stunning.", headline: "For Barbora Strycova, Wimbledon Rewards Impatience at Last", imgUrl: "images/2019/07/09/sports/09tennisside1/09tennisside1-verticalTwoByThree735.jpg"),
